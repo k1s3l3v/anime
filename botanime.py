@@ -60,6 +60,7 @@ def start_message(message):
 
 @bot.message_handler(commands=['anime'])
 def text1(message):
+
     c = bot.reply_to(message, "введи первую реплику")
     userdict.append(message.text)
     bot.register_next_step_handler(c, text2)
@@ -84,6 +85,7 @@ def text4(message):
 
 
 def sendpic(message):
+    userdict.append(message.text)
     draw = ImageDraw.Draw(mon_dog)
     text0 = userdict[-4]
     text1 = userdict[-3]
@@ -98,6 +100,6 @@ def sendpic(message):
     draw.text((image0_size[0] + image0_size[1] // 4 + 3, 2 * image0_size[0] + image0_size[1] // 4), text3, (0, 0, 0),
               font)
     mon_dog.save("animeex.jpeg")
-    bot.send_photo(message.chat.id, photo=open("/animeex.jpeg"))
+    bot.send_photo(message.chat.id, photo=open("animeex.jpeg",'rb'))
 
 bot.polling()
