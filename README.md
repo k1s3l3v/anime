@@ -6,4 +6,5 @@
 ![image](https://user-images.githubusercontent.com/70627048/118808529-48342b00-b8b2-11eb-9216-da9b45343b01.png)
 пример готового комикса 
 
+
 ![image](https://user-images.githubusercontent.com/70627048/118808340-1753f600-b8b2-11eb-8d0b-0fedcfcb8635.png)
