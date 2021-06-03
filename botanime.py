@@ -305,9 +305,8 @@ for i in range(5):
         axs[i, j].axis('off')
 
 plt.show()
-
-nRowsRead = 1000
-df1 = pd.read_csv('anime.csv', delimiter=',', nrows=nRowsRead)
+nRows = 1000
+df1 = pd.read_csv('anime.csv', delimiter=',', nrows=nRows)
 df1.dataframeName = 'anime.csv'
 nRow, nCol = df1.shape
 
@@ -315,12 +314,11 @@ genreslist = list(df1['genre'])
 
 dic = {}
 for i in range(len(df1['genre'])):
-    for g in df1['genre'][i].split(', '):
+    for g in (df1['genre'][i]).split(', '):
         if g in dic.keys():
             dic[g].append(df1['name'][i])
         else:
             dic[g] = [df1['name'][i]]
-
 
 bot = telebot.TeleBot('1882671446:AAEQq6vjnmSpxs0To7AJzLLBc9BeFyX_Pq8')
 user_dict = []
@@ -330,7 +328,12 @@ keyboard.row("/generatemycomics", "/generatetext", "/generatecomics", "/rec")
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, "Здравствуйте, Вы попали на anime fanpage!\nЧтобы создать свой комикс, введите /generatemycomics\nЧтобы посмотреть на случайный комикс, введите /generatecomics\nЧтобы посмотреть на случайно составленный текст, основанный на аниме субтитрах, введите /generatetext", reply_markup=keyboard)
+    bot.send_message(message.chat.id, "Здравствуйте, Вы попали на anime fanpage!\nЧтобы создать свой комикс,"
+                                      " введите /generatemycomics\n"
+                                      "Чтобы посмотреть на случайный комикс, введите /generatecomics\n"
+                                      "Чтобы посмотреть на случайно составленный текст,"
+                                      " основанный на аниме субтитрах, введите /generatetext\n"
+                                      "Чтобы посмотреть подборку, введите /rec", reply_markup=keyboard)
 
 
 @bot.message_handler(commands=['generatecomics'])
@@ -344,8 +347,6 @@ def gen_message(message):
 
 @bot.message_handler(commands=['generatetext'])
 def gen_message(message):
-    global generate
-    generate = True
     bot.reply_to(message, " ".join(get_text(length=400).split()[:-1]))
 
 
@@ -441,7 +442,7 @@ def get_list_genres(genres):
 
 @bot.message_handler(commands=['rec'])
 def genre1(message):
-    gen1 = bot.reply_to(message, f"Введите жанр\nСписок жанров: {list(dic.keys())}")
+    gen1 = bot.reply_to(message, f"Введите жанр\nСписок жанров: {', '.join(list(dic.keys()))}")
     bot.register_next_step_handler(gen1, genre2)
 
 
@@ -449,12 +450,12 @@ def genre2(message):
     if message.text == '/ready':
         result = get_list_genres(genres)
         if len(result) == 0:
-            bot.send_message(message.chat.id, "Таких аниме нет")
+            bot.send_message(message.chat.id, "Таких аниме не было найдено")
         else:
-            bot.send_message(message.chat.id, f"Вот ваш список аниме: {result}")
+            bot.send_message(message.chat.id, f"Вот ваш список аниме: {', '.join(result[:10]) if len(result) > 10 else ', '.join(result)}")
         genres.clear()
     elif message.text not in dic.keys():
-        gen2 = bot.reply_to(message, f"Такого жанра не существует, вот список доступных жанров: {list(dic.keys())}\n"
+        gen2 = bot.reply_to(message, f"Такого жанра не существует, вот список доступных жанров: {', '.join(list(dic.keys()))}\n"
                                      f"Попробуйте снова")
         bot.register_next_step_handler(gen2, genre2)
     else:
