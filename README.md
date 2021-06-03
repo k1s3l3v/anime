@@ -4,6 +4,10 @@
 
 # Dataset https://www.kaggle.com/soumikrakshit/anime-faces
 ![image](https://user-images.githubusercontent.com/46604662/114591250-6050d300-9c92-11eb-8307-fee588a04a37.png)
+# Dataset субтитров https://www.kaggle.com/jef1056/anime-subtitles
+![image](https://user-images.githubusercontent.com/70627048/120656688-8160c380-c48c-11eb-81af-182abbb2cb96.png)
+# Dataset жанров аниме https://www.kaggle.com/CooperUnion/anime-recommendations-database
+![image](https://user-images.githubusercontent.com/70627048/120656853-a48b7300-c48c-11eb-923f-7b42cf792b39.png)
 
 # Пример сгенерированных рисунков 
 
