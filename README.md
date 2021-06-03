@@ -18,6 +18,8 @@
 ![image](https://user-images.githubusercontent.com/70627048/120655552-778a9080-c48b-11eb-8dc8-cb161bdc5678.png)
 # Результат функции
 ![image](https://user-images.githubusercontent.com/70627048/120655595-81ac8f00-c48b-11eb-882d-f70acb293414.png)
-
-
+# Команда /generatetext возвращает сгенерированный текст на основе аниме-субтитров
+![image](https://user-images.githubusercontent.com/70627048/120656113-026b8b00-c48c-11eb-9d5b-462106cc48e6.png)
+# Команда /rec позволяет пользователю по введенным им жанрам, составить список подходящих аниме сериалов и фильмов
+![image](https://user-images.githubusercontent.com/70627048/120656424-46f72680-c48c-11eb-9502-9b2989db2cf6.png)
 
