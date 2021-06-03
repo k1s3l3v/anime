@@ -1,4 +1,6 @@
 # Телеграм-бот для любителей аниме
+# Идея бота
+Бот был создан для зрителей аниме как и с развлекательной целью, так и с целью помощи подбора следующего аниме для просмотра
 
 # Dataset https://www.kaggle.com/soumikrakshit/anime-faces
 ![image](https://user-images.githubusercontent.com/46604662/114591250-6050d300-9c92-11eb-8307-fee588a04a37.png)
