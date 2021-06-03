@@ -406,7 +406,6 @@ def send_pic(message):
     if generate:
         txt = get_text().split()[:-1]
         print(txt)
-        print("Sock")
         spl = len(txt) // 8 + 1
         txt0 = " ".join(txt[:spl])
         txt1 = " ".join(txt[spl:2 * spl])
