@@ -320,7 +320,7 @@ for i in range(len(df1['genre'])):
         else:
             dic[g] = [df1['name'][i]]
 
-bot = telebot.TeleBot('1882671446:AAEQq6vjnmSpxs0To7AJzLLBc9BeFyX_Pq8')
+bot = telebot.TeleBot('')
 user_dict = []
 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
 keyboard.row("/generatemycomics", "/generatetext", "/generatecomics", "/rec")
